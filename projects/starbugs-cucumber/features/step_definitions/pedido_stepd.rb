@@ -10,21 +10,18 @@ When('informo os demais dados do endereço:') do |table|
     @checkout.fill_adress(table.rows_hash)
 end
   
-When('escolho a forma de pagamento {string}') do |string|
-    pending # Write code here that turns the phrase above into concrete actions
+When('escolho a forma de pagamento {string}') do |payment_type|
+    @checkout.choice_payment_type(payment_type)
 end
   
 When('finalizo a compra') do
-    pending # Write code here that turns the phrase above into concrete actions
+    @checkout.submit
 end
   
 Then('sou redirecionado para a página de confirmação de pedido') do
-    pending # Write code here that turns the phrase above into concrete actions
+    @order.assert_order
 end
   
-Then('deve ser informado um prazo de entrega entre {int} e {int} minutos') do |int, int2|
-  # Then('deve ser informado um prazo de entrega entre {int} e {float} minutos') do |int, float|
-  # Then('deve ser informado um prazo de entrega entre {float} e {int} minutos') do |float, int|
-  # Then('deve ser informado um prazo de entrega entre {float} e {float} minutos') do |float, float2|
-    pending # Write code here that turns the phrase above into concrete actions
+Then('deve ser informado o seguinte prazo de entrega: {string}') do |delivery_time|
+    @order.assert_delivery_time(delivery_time)
 end

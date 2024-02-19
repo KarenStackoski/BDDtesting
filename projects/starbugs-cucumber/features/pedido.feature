@@ -11,4 +11,4 @@ Feature: Pedidos
             And escolho a forma de pagamento "Cartão de Débito"
             And finalizo a compra
         Then sou redirecionado para a página de confirmação de pedido
-            And deve ser informado um prazo de entrega entre 20 e 30 minutos
+            And deve ser informado o seguinte prazo de entrega: "20 min - 30 min"

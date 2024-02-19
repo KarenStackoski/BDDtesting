@@ -29,4 +29,12 @@ class CheckoutPage
         find('input[name=number]').set(address[:Numero])
         find('input[name=complement]').set(address[:Complemento])
     end
+
+    def choice_payment_type(payment_type)
+        find('label div', text: payment_type.upcase).click
+    end
+
+    def submit
+        click_on "Confirmar pedido"
+    end
 end
