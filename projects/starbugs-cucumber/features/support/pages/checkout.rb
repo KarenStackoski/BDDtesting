@@ -16,8 +16,9 @@ class CheckoutPage
     end
 
     def assert_total_price(price)
-        price = find('.total-price')
-        expect(price.text).to eql price
+        price_element = find('.total-price')
+        actual_price = price_element.text
+        expect(actual_price).to eql price
     end
 
     def find_zipcode(zipcode)
@@ -36,5 +37,15 @@ class CheckoutPage
 
     def submit
         click_on "Confirmar pedido"
+    end
+
+    def set_cupom(cupom_code)
+        find('input[placeholder="Código do cupom"]').set(cupom_code)
+        click_on "Aplicar"
+    end
+
+    def notify(text)
+        notice = find('.notice').text
+        expect(notice).to eql text
     end
 end

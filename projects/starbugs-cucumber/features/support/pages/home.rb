@@ -2,7 +2,7 @@ class HomePage
     include Capybara::DSL
 
     def open
-        visit 'https://starbugs.vercel.app/'
+        visit 'https://starbugs-qa.vercel.app/'
     end
 
     def coffees
